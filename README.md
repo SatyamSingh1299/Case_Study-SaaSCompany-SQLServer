@@ -17,7 +17,7 @@ The entire analysis for the project was done using SQL. A wide range of SQL func
 
 ## Main Data Model
 The entire data model/entity relationship diagram for the firm is shown below with multiple fact and dimension tables:
-![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/BI_SqlServer.png)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/BI_SqlServer.png)
 ## Solutions to Key Business Problems
 ### Descriptive statistics for monthly revenue by product
 #### Business Problem
@@ -50,7 +50,7 @@ stddev(Total_Revenue) AS STD_DEV_REV
 FROM Monthly_Rev
 GROUP BY ProductName;
 ```
-![Result 1]()<br>
+![Result 1](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/Img2.png)<br>
 
 #### Analysis
 The expert product subscription genertaed more revenue than the basic one over the months however had a higher standard deviation. So although the "expert" product subscription generated a higher revenue, the revenue from the basic subscription was more consistent across the months and centered across the mean. <br><br>
@@ -74,7 +74,7 @@ SELECT NUM_LINK_CLICKS,COUNT(USERID) AS NUM_USERS
 FROM Clicks_per_user
 GROUP BY NUM_LINK_CLICKS
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/62b96912-981e-4d6a-8167-87b719c5989f)<br>
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img3.png)<br>
 #### Analysis
 Based on the results obtained, it can be seen that about half of the users returned to the email to click on the link multiple times in order to reach a unique landing page that could only be accesed from within the campaign email. These insigts would be useful for the marketing team in order to understand how the users are interacting with the email link.<br><br>
 
@@ -90,7 +90,7 @@ Here's the payment process a user goes through when signing up for a subscriptio
 5. The payment company completes the transaction and reports back with "complete."
 
 This process is converted into statusids using the following mapping in the **"statusdefinition"** table below:
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/c94d29c2-d0e4-4014-8d80-b413cffc63cf)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img4.png)
 
 
 #### Code
@@ -118,7 +118,7 @@ ON s.SUBSCRIPTIONID = m.SUBSCRIPTIONID)
 SELECT paymentfunnelstage, COUNT(SUBSCRIPTIONID)  AS SubscriptionsFROM Funnel_Stage
 GROUP BY paymentfunnelstage
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/44f900ae-2205-472c-b680-2cd8d81485f6)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img5.png)
 
 #### Analysis
 There are 25 total users out of which 12 (roughly half of the total users) have successfully signed up for the product subscription. 7 of them have opened the paymnet widget but haven't taken any further steps. A samll chunk of users are facing some technical issues with the payment processing either on the vendor side or due to their own user error. At this stage some of the following measures can be taken: 
@@ -149,7 +149,7 @@ END AS UPSELL_OPPORTUNITY
 FROM Subscriptions
 GROUP BY CustomerID
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/f6810901-331a-4cd6-b26d-f09e014681a8)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img6.png)
 
 #### Analysis
 The results show that customers with IDs "29335", "55533", "82772", "93888" are an upsell oppurtunity for the business as they either have subscription for just a single product or have atleast 5000 or more registered users or either satisfy both conditions.
@@ -179,7 +179,7 @@ ON fel.EventID = fed.EventID
 WHERE EventType = 'Customer Support'
 GROUP BY fel.UserID
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/24bf5b7c-7032-4504-82be-6a5ae760d96b)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img7.png)
 
 
 #### Analysis
@@ -209,7 +209,7 @@ COUNT(SUBSCRIPTIONID) as subscriptions
 FROM all_subscriptions
 GROUP BY exp_year
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/658458f5-4ffa-4dd0-82b9-86fad174c5b6)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img8.png)
 
 
 #### Analysis
@@ -240,7 +240,7 @@ SELECT
 COUNT(DISTINCT subscriptionid)) AS percent_expensive
 FROM all_cancelation_reasons
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/b76833a9-8a30-445f-9d63-12c25ea16e5e)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img9.png)
 
 
 
@@ -262,7 +262,7 @@ LEFT JOIN employees managers
 ON employees.MANAGERID = managers.EMPLOYEEID
 WHERE employees.DEPARTMENT='Sales'
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/0691e472-63b0-4106-9b3b-49fd42a1f06a)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img10.png)
 
 #### Analysis
 The results above show that the manager for employees with IDs 'E738' and 'E192'is Bonnie Clark who is email is directly pulled in the rows for these employees. However since Bonnie Clarke and Roy Martin don't have a manager logged in, so the query pulls their employee email instad in order to directly notify them about the buisness change.
@@ -287,14 +287,14 @@ WHERE current_month.Total_Revenue > previous_month.Total_Revenue
 AND
 datediff('Month',previous_month.Month,current_month.Month) = 1
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/f9e142ea-11c3-4104-9db1-68d302f960ba)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img11.png)
 
 #### Analysis
 The results show that the revenue was up in July and then again in October 2022. The revenue in July was double that of June 2022 amounting to $32,000 while the revenue increase from September to October was quite less, totalling to about $1000. As the reports presents only the months where the revenue was up Month over Month (MoM), it can be concluded that the business saw the most significant growth between June and July in the year 2022. To summarize, these results show that the business was more profitable in the middle of the year 2022 than it was at either at the start or the end of it.
 
 ### Tracking Sales Quota progress over time
 #### Business Problem
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/3004a8ec-a336-48a2-bb5e-4ac924dcfcfe)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img12.png)
 
 The sales team works diligently to sell the product, and they have quotas that they must reach in order to earn all of their commission. Because these goals are so intimately tied to revenue, the manager of the team wants to track each sales member's performance throughout the year.<br>
 
@@ -310,7 +310,7 @@ FROM Sales s
 INNER JOIN Employees e
 ON s.SALESEMPLOYEEID = e.EMPLOYEEID
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/c3d9bae1-6942-4e80-8b8e-8e97b58f0004)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img13.png)
 
 #### Analysis
 The following are the key insights from the sales quota progress report shown above:
@@ -337,7 +337,7 @@ Each step of the payment process from the user point of view is outlined below:
 
 This process is converted into statusid s using the following ID to definition mapping below and stored in the "statusdefinition" table:
 
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/aefc94b5-4a4c-4005-ba14-e511198ff465)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img14.png)
 
 The analytics team will pull the payment funnel data for subscriptionid = 38844. For each status timestamp, the time difference between that timestamp and the next chronological timestamp will be calculated in order to show how long the user was in each status before moving to the next status.
 #### Code
@@ -349,7 +349,7 @@ FROM PaymentStatusLog
 WHERE SUBSCRIPTIONID = '38844'
 ORDER BY MOVEMENTDATE
 ```
-![image](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/bc275c9b-072c-49ba-a30d-ee215350d54c)
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/images/img15.png)
 
 
 #### **Analysis**
