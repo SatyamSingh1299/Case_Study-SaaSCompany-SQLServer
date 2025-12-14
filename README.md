@@ -17,7 +17,7 @@ The entire analysis for the project was done using SQL. A wide range of SQL func
 
 ## Main Data Model
 The entire data model / entity relationship digram for the firm is shown below with multiple fact and dimension tables:
-![image]("C:\Users\singh\Documents\Projects\Business-Intelligence-Analytics-for-a-product-based-startup-main\Business-Intelligence-Analytics-for-a-product-based-startup-main\BI_SqlServer.png")
+![image]("https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/BI_SqlServer.png")
 ## Solutions to Key Buisness Problems
 ### Descriptive statistics for monthly revenue by product
 #### Business Problem
