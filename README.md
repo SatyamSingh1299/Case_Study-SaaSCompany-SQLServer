@@ -1,32 +1,32 @@
-# Business Intelligence (BI) Analytics for a SaaS Company in SQL
+# SQL Server Analytics for a Company
 ## Project Overview
-Throughout this project, I will be acting as the member of the analytics team for a SaaS company, solving a wide range of real world buisness problems in collaboration with various stakeholders at the firm.
+Throughout this project, I will be acting as a member of the analytics team for a SaaS company, solving a wide range of real-world business problems in collaboration with various stakeholders at the firm.
 
 ## Background
-The business in question here is a product based company offering **'basic'** and **'expert'** level subscriptions to a diverse clientale. For the scope of this project, the company's data is avaialable till the end of the year 2022. This data will be used to make decisions for 2023 and onwards. In other words, the project simulates all the analytical tasks taking place during the year 2023.
+The business in question here is a product based company offering **'basic'** and **'expert'** level subscriptions to a diverse clientele. For the scope of this project, the company's data is available till the end of the year 2022. This data will be used to make decisions for 2023 and onwards. In other words, the project simulates all the analytical tasks taking place during the year 2023.
 
 ## Project Toolkit
-The entire analysis for the project was done using SQL. A wide range of SQL functionalities were explored over the course of the project such as:
+The entire analysis for the project was done using SQL. A wide range of SQL functionalities were explored over the course of the project, such as:
 * INNER JOINS and SELF JOINS.
 * UNION and UNION ALL.
 * Common Table Expressions (CTEs).
 * Aggregate functions such as 'COUNT()', 'SUM()', 'MAX()', 'MIN()', 'AVG()' etc along with the 'GROUP BY' clause.
 * Date-time fucntions such as 'DATE_TRUNC()'.
-* Functions to find and fill in null values such as 'COALESCE()'.
+* Functions to find and fill in null values, such as 'COALESCE()'.
 * Window functions such as 'PARTITION BY()', 'RANK()', 'ROW_NUMBER()', 'LEAD()' etc.
 
 ## Main Data Model
-The entire data model / entity relationship digram for the firm is shown below with multiple fact and dimension tables:
-![image]("https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/BI_SqlServer.png")
-## Solutions to Key Buisness Problems
+The entire data model/entity relationship diagram for the firm is shown below with multiple fact and dimension tables:
+![image](https://github.com/SatyamSingh1299/Case_Study-SaaSCompany-SQLServer/blob/main/BI_SqlServer.png)
+## Solutions to Key Business Problems
 ### Descriptive statistics for monthly revenue by product
 #### Business Problem
-The leadership team at the company is making goals for 2023 and wants to understand how much revenue each of the product subscriptions, 'basic' and 'expert' are generating each month. More specifically, they want to understand the distribution of monthly revenue across the past year, 2022.<br>
+The leadership team at the company is setting goals for 2023 and wants to understand how much revenue each of the product subscriptions, 'Basic' and 'Expert', generates each month. More specifically, they want to understand the distribution of monthly revenue across the past year, 2022.<br>
 
 They've asked you the following questions:
 1. How much revenue does each product usually generate each month?
 2. Which product had the most success throughout all of last year?
-3. Did either product fluctuate greatly each month or was the month-to-month trend fairly consistent?
+3. Did either product fluctuate greatly each month, or was the month-to-month trend fairly consistent?
 
 The query below can be used to accomplish this task:
 #### Code
@@ -50,7 +50,7 @@ stddev(Total_Revenue) AS STD_DEV_REV
 FROM Monthly_Rev
 GROUP BY ProductName;
 ```
-![Result 1](https://github.com/Sha95544/Business-Intelligence-Analytics-for-a-product-based-startup/assets/62758405/9d416207-595e-4f0a-9857-39549fb3f190)<br>
+![Result 1]()<br>
 
 #### Analysis
 The expert product subscription genertaed more revenue than the basic one over the months however had a higher standard deviation. So although the "expert" product subscription generated a higher revenue, the revenue from the basic subscription was more consistent across the months and centered across the mean. <br><br>
